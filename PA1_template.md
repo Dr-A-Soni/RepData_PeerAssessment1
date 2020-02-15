@@ -1,14 +1,13 @@
 ---
-title: "RepData_PeerAssessment1-wk2"
+title: '"Reproducible Research: Peer Assessment 1"'
 author: '"Dr-A-Soni'
-date: "16/02/2020"
+date: "15/02/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 ## **Loading and Processing the Data:**
 ### *1. Read data into memory via read.csv*
 ### *2. Change Date from String to Date(IF necessary)*
@@ -57,6 +56,7 @@ head(Steps_Interval)
 ```{r}
 ggplot(Steps_Interval, aes(x= interval, y = steps)) + geom_line() + 
     ggtitle("Time series plot for Average steps taken each day")
+
 ```
 ## **The 5-minute interval that, on average, contains the maximum number of steps**
 ### *On average across all the days in the dataset, the 5-minute interval contains the maximum number of steps?*
@@ -108,6 +108,7 @@ str(Task_NA)
 Step_NA_Daily <- Task_NA %>% group_by(date) %>% summarise(Tsteps = sum(steps))
 head(Step_NA_Daily)
 ## ii) ploting the histogram with the missing values.
+
 hist(Step_NA_Daily$Tsteps, xlab= "Steps", col = "yellow", main = "Histogram of daily steps", ylim= c(0,40))
 ```
 ###   *e) Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?*
